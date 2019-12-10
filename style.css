@@ -21,17 +21,16 @@ a {
 section {
   max-width: 1024px;
   margin: auto;
-  padding-top: 10%;
+  padding: 10% 5%;
 }
 
 .text-center {
   text-align: center;
 }
 
-/* bio */
-#me-image, #me-bio {
+#me-image, #content {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
 }
 #me-image {
   width: 20%;
@@ -41,20 +40,28 @@ section {
   border-radius: 100px;
   border: .3em solid #d0d0d0;
 }
-#me-bio {
-  width: 79%;
-  font-size: 1.2em;
-}
 
+/* content */
+#content {
+  width: 75%;
+  font-size: 1.2em;
+  padding-left:5%;
+}
 #links {
-  padding-top: 150px;
+  padding-top: 20%;
 }
 #links a {
   text-decoration: none;
-  margin: .2em;
+  margin: .1em;
   display: inline-block;
   vertical-align: middle;
 }
 #links a > img {
-  height: 32px;
+  height: 1.4em;
+}
+
+@media (max-width: 600px) {
+  html, body {
+    font-size: 16px;
+  }
 }
