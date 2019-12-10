@@ -1,0 +1,16 @@
+html, body {
+  font-family: 'Asar', serif;
+  font-size: 18px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
