@@ -9,8 +9,36 @@ html, body {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 a {
   color: inherit;
+}
+
+section {
+  max-width: 1024px;
+  margin: auto;
+  padding-top: 10%;
+}
+
+/* bio */
+#me-image, #me-bio {
+  display: inline-block;
+  vertical-align: middle;
+}
+#me-image {
+  width: 20%;
+}
+#me-image > img {
+  width: 100%;
+  border-radius: 100px;
+  border: .3em solid #ddd;
+}
+#me-bio {
+  width: 79%;
+  text-align: center;
+  font-size: 1.2em;
 }
