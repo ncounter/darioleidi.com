@@ -52,4 +52,9 @@ section {
 #links a {
   text-decoration: none;
   margin: .2em;
+  display: inline-block;
+  vertical-align: middle;
+}
+#links a > img {
+  height: 32px;
 }
