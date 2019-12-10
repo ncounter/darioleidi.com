@@ -3,8 +3,8 @@ html, body {
   font-size: 18px;
   margin: 0 auto;
   padding: 0;
-  background: #fff;
-  color: #333;
+  background: #222;
+  color: #d0d0d0;
 }
 
 * {
@@ -35,7 +35,7 @@ section {
 #me-image > img {
   width: 100%;
   border-radius: 100px;
-  border: .3em solid #ddd;
+  border: .3em solid #d0d0d0;
 }
 #me-bio {
   width: 79%;
