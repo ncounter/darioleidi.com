@@ -68,4 +68,18 @@ section {
   html, body {
     font-size: 16px;
   }
+
+  #me-image > img {
+    border-width: .2em;
+  }
+}
+
+@media (max-width: 320px) {
+  html, body {
+    font-size: 14px;
+  }
+
+  #me-image > img {
+    border-width: .1em;
+  }
 }
