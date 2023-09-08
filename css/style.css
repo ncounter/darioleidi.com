@@ -1,0 +1,79 @@
+html, body {
+  margin: auto;
+  font-size: 1.1em;
+  font-family: Mina, Fira, Asar;
+}
+
+* {
+  box-sizing: content-box;
+  border: 0px;
+}
+
+a {
+  font-family: Mina;
+  color: inherit;
+}
+
+footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  max-height: 3em;
+}
+
+#avatar-face {
+  overflow: hidden;
+  background-image: url('/images/avatar-face.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 10em 10em;
+  background-origin: content-box;
+  width: 10em;
+  height: 10em;
+  margin-right: 1em;
+}
+
+section {
+  max-width: 1280px;
+  margin: auto;
+}
+
+.menu {
+  list-style: none;
+  width: 20%;
+  min-width: 200px;
+}
+
+.content-wrapper { }
+
+.tag { font-weight: 600; }
+
+@media (max-width: 1024px) {
+  html, body { font-size: 1em; }
+
+  #avatar-face {
+    background-size: 8em 8em;
+    width: 8em;
+    height: 8em;
+  }
+}
+
+@media (max-width: 600px) {
+  html, body { font-size: .8em; }
+
+  #avatar-face {
+    background-size: 5em 5em;
+    width: 5em;
+    height: 5em;
+  }
+}
+
+@media (max-width: 320px) {
+  /* html, body { font-size: .6em; } */
+
+  #avatar-face {
+    background-size: 3em 3em;
+    width: 3em;
+    height: 3em;
+  }
+}
