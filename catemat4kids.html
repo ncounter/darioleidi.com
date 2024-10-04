@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <title>darioleidi.com</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- font families -->
+    <link href="https://fonts.googleapis.com/css?family=Asar|Fira|Mina" rel="stylesheet">
+    <!-- external libraries scripts -->
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+    <!-- custom styles -->
+    <link type="text/css" rel="Stylesheet" href="/css/style.css" />
+    <!-- custom scripts -->
+    <script type="text/javascript" src="/javascript/script.js" defer></script>
+  </head>
+  <body>
+    <header class="d-flex justify-content-center py-2 border-bottom fixed-top bg-light">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#about-me" class="nav-link text-danger" aria-current="page">About me</a></li>
+        <li class="nav-item"><a href="#software-engineering" class="nav-link text-primary">Software Engineering</a></li>
+        <li class="nav-item"><a href="#music" class="nav-link text-dark">Music</a></li>
+        <li class="nav-item"><a href="#board-games" class="nav-link text-success">Board games</a></li>
+      </ul>
+    </header>
+    <div class="container">
+      <section id="board-games" class="my-5 py-4">
+        <h4 class="text-bg-success p-1">CATEMAT4KIDS</h4>
+        <p>
+          <md-block>
+            ### I MAZZI:
+              - 45 carte numero: 5 carte per ogni numero, numeri da 1 a 9
+              - 32 carte operatore: 16 carte operatore + (più) e 16 carte operatore - (meno)
+
+            ### LE CARTE:
+              - le carte numero rappresentano un numero da 1 a 9
+              - le carte operatore rappresentano un operatore algebrico: + (più) esegue la somma, - (meno) esegue la sottrazione
+
+            ### LA PREPARAZIONE DELLO STATO INIZIALE:
+              - 3 carte numeri per ogni giocatore
+              - 3 carte operatori per ogni giocatore
+              - 1 nuova carta obiettivo prelevata dal mazzo centrale e rivolta a faccia in su
+
+            ### IL TURNO:
+              Il giocatore che è di TURNO può:
+              - dare la soluzione
+              ##### oppure
+              - cambiare 1, 2 o tutte e 3 le carte operatore
+              - pescare 1 carta numero
+
+            ### LA SOLUZIONE:
+              - ogni giocatore, durante il proprio turno, deve trovare una combinazione di carte numero e carte operatore in modo che il risultato sia uguale alla carta obiettivo, e per farlo può utilizzare tutte o una parte delle carte numero e carte operatore in suo possesso nel TURNO in corso
+              - la soluzione può essere fatta da una concatenazione di operazioni, ed il risultato viene calcolato in maniera lineare, senza parentesi od operazioni annidate
+                - es: 7-4+2=5 SOLUZIONE VALIDA
+                - es: 7-4+2=1 perchè valutato come 7-(4+2)=1 SOLUZIONE NON VALIDA
+
+            ### FINE DEL TURNO:
+              - un giocatore dà la soluzione
+              - le carte operatore utilizzate per dare la soluzione vengono rimescolate con le rimanenti
+              - le carte numero utilizzate per dare la soluzione vengono accumulate nella pila delle soluzioni del giocatore che ha dato la soluzione vincente
+              - tutti i giocatori ripristinano lo stato iniziale della manche:
+                - il giocatore che ha dato la soluzione pesca le carte numero fino a quando non ne ha 3 in mano, se ne ha di più, le può tenere per il turno successivo
+                - il giocatore che ha dato la soluzione pesca le carte operatore fino a quando non ne ha 3 in mano
+                - tutti i giocatori che non hanno dato la soluzione devono scartare tutte le carte numero in eccesso fino a che ne hanno solamente 3 nella loro mano. Tutti gli eccessi scartati vanno dati al giocatore che ha dato la soluzione, il quale le aggiungera alla sua pila delle soluzioni
+
+            ### FINE PARTITA:
+              - il mazzo delle carte numero è finito
+              - si finisce il giro del TURNO in corso, se qualcuno ha la soluzione, si procederà con i passaggi di FINE TURNO, altrimenti le carte in gioco nel TURNO in corso non vengono considerate, e si passa alla valutazione del vincitore della partita
+
+            ### VINCITORE:
+              - il giocatore con più carte numero nella pila delle soluzioni VINCE la PARTITA
+          </md-block>
+        </p>
+      </section>
+    </div>
+    <div class="container">
+      <footer class="py-3 my-4">
+        <p class="text-center text-primary p-1"><a href="mailto:info@darioleidi.com" class="text-body-secondary">info@darioleidi.com</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
