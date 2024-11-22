@@ -25,16 +25,16 @@
     </header>
     <div class="container">
       <section id="board-games" class="my-5 py-4">
-        <h4 class="text-bg-success p-1">CATEMAT4KIDS</h4>
+        <h4 class="text-bg-success p-1">Bamboo</h4>
         <p>
           <md-block>
             ### I MAZZI:
               - 45 carte numero: 5 carte per ogni numero, numeri da 1 a 9
-              - 32 carte operatore: 16 carte operatore + (più) e 16 carte operatore - (meno)
+              - 32 carte operatore: 16 carte operatore + [più] e 16 carte operatore - [meno]
 
             ### LE CARTE:
               - le carte numero rappresentano un numero da 1 a 9
-              - le carte operatore rappresentano un operatore algebrico: + (più) esegue la somma, - (meno) esegue la sottrazione
+              - le carte operatore rappresentano un operatore algebrico: + [più] esegue la somma, - [meno] esegue la sottrazione
 
             ### LA PREPARAZIONE DELLO STATO INIZIALE:
               - 3 carte numeri per ogni giocatore
@@ -45,23 +45,25 @@
               Il giocatore che è di TURNO può:
               - dare la soluzione
               ##### oppure
-              - cambiare 1, 2 o tutte e 3 le carte operatore
               - pescare 1 carta numero
+              - cambiare tutte le carte operatore [opzionale]: il giocatore ripone tutte le sue carte operatore nella pila di carte operatore da pescare, mescola il mazzo e ne ripesca nuovamente 3
 
             ### LA SOLUZIONE:
               - ogni giocatore, durante il proprio turno, deve trovare una combinazione di carte numero e carte operatore in modo che il risultato sia uguale alla carta obiettivo, e per farlo può utilizzare tutte o una parte delle carte numero e carte operatore in suo possesso nel TURNO in corso
               - la soluzione può essere fatta da una concatenazione di operazioni, ed il risultato viene calcolato in maniera lineare, senza parentesi od operazioni annidate
-                - es: 7-4+2=5 SOLUZIONE VALIDA
-                - es: 7-4+2=1 perchè valutato come 7-(4+2)=1 SOLUZIONE NON VALIDA
+                - es: 7-4+2=1 perchè valutato come 7-4+2=5 SOLUZIONE VALIDA
+                - es: 7-4+2=1 perchè valutato come 7-[4+2]=7-6=1 SOLUZIONE NON VALIDA
 
             ### FINE DEL TURNO:
               - un giocatore dà la soluzione
-              - le carte operatore utilizzate per dare la soluzione vengono rimescolate con le rimanenti
               - le carte numero utilizzate per dare la soluzione vengono accumulate nella pila delle soluzioni del giocatore che ha dato la soluzione vincente
-              - tutti i giocatori ripristinano lo stato iniziale della manche:
-                - il giocatore che ha dato la soluzione pesca le carte numero fino a quando non ne ha 3 in mano, se ne ha di più, le può tenere per il turno successivo
+              - la carta obiettivo viene accumulata nella pila delle soluzioni del giocatore che ha dato la soluzione vincente
+              - le carte operatore di tutti i giocatori vengono riposizionate nella pila delle carte operatore da pescare
+              - i giocatori ripristinano ora lo stato iniziale della mano:
+                - il giocatore che ha dato la soluzione pesca le carte numero dalla pila delle carte numero da pescare fino a quando non ne ha 3 in mano; se invece ne ha di più, le può tenere per il turno successivo
                 - il giocatore che ha dato la soluzione pesca le carte operatore fino a quando non ne ha 3 in mano
-                - tutti i giocatori che non hanno dato la soluzione devono scartare tutte le carte numero in eccesso fino a che ne hanno solamente 3 nella loro mano. Tutti gli eccessi scartati vanno dati al giocatore che ha dato la soluzione, il quale le aggiungera alla sua pila delle soluzioni
+                - tutti i giocatori che non hanno dato la soluzione devono scartare tutte le carte numero in eccesso fino a che rimangono solamente con 3 carte numero nella loro mano. Tutti gli eccessi scartati vengono accumulati nella pila delle soluzioni del giocatore che ha dato la soluzione
+                - tutti i giocatori che non hanno dato la soluzione devono pescare le carte operatore fino a quando non ne hanno 3 in mano
 
             ### FINE PARTITA:
               - il mazzo delle carte numero è finito
