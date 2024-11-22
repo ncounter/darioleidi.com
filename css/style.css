@@ -37,6 +37,10 @@ p {
   font-family: Asar;
 }
 
+.lang {
+  text-align: right;
+}
+
 @media (max-width: 1024px) {
   #me {
     background-size: 7em 7em;

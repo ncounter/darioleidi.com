@@ -17,60 +17,115 @@
   <body>
     <header class="d-flex justify-content-center py-2 border-bottom fixed-top bg-light">
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#about-me" class="nav-link text-danger" aria-current="page">About me</a></li>
-        <li class="nav-item"><a href="#software-engineering" class="nav-link text-primary">Software Engineering</a></li>
-        <li class="nav-item"><a href="#music" class="nav-link text-dark">Music</a></li>
-        <li class="nav-item"><a href="#board-games" class="nav-link text-success">Board games</a></li>
+        <li class="nav-item"><a href="/#about-me" class="nav-link text-danger" aria-current="page">About me</a></li>
+        <li class="nav-item"><a href="/#software-engineering" class="nav-link text-primary">Software Engineering</a></li>
+        <li class="nav-item"><a href="/#music" class="nav-link text-dark">Music</a></li>
+        <li class="nav-item"><a href="/#board-games" class="nav-link text-success">Board games</a></li>
       </ul>
     </header>
     <div class="container">
       <section id="board-games" class="my-5 py-4">
         <h4 class="text-bg-success p-1">Bamboo</h4>
         <p>
+          <h5 class="lang">ITA</h5>
           <md-block>
             ### I MAZZI:
               - 45 carte numero: 5 carte per ogni numero, numeri da 1 a 9
-              - 32 carte operatore: 16 carte operatore + [più] e 16 carte operatore - [meno]
+              - 32 carte operatore: 16 carte operatore "+"" e 16 carte operatore "-"
 
             ### LE CARTE:
+
               - le carte numero rappresentano un numero da 1 a 9
-              - le carte operatore rappresentano un operatore algebrico: + [più] esegue la somma, - [meno] esegue la sottrazione
+              - le carte operatore rappresentano un operatore algebrico: "+" esegue la somma, "-" esegue la sottrazione
 
             ### LA PREPARAZIONE DELLO STATO INIZIALE:
-              - 3 carte numeri per ogni giocatore
-              - 3 carte operatori per ogni giocatore
-              - 1 nuova carta obiettivo prelevata dal mazzo centrale e rivolta a faccia in su
+              - 3 carte numero per ogni giocatore
+              - 3 carte operatore per ogni giocatore
+              - 1 nuova carta obiettivo prelevata dal mazzo di pesca delle carte numero e rivolta a faccia in su, visiblile a tutti i giocatori
 
             ### IL TURNO:
               Il giocatore che è di TURNO può:
               - dare la soluzione
               ##### oppure
               - pescare 1 carta numero
-              - cambiare tutte le carte operatore [opzionale]: il giocatore ripone tutte le sue carte operatore nella pila di carte operatore da pescare, mescola il mazzo e ne ripesca nuovamente 3
+              - cambiare tutte le carte operatore [opzionale]: il giocatore ripone tutte le sue carte operatore nel mazzo di pesca delle carte operatore, mescola il mazzo e ne ripesca nuovamente 3
 
             ### LA SOLUZIONE:
               - ogni giocatore, durante il proprio turno, deve trovare una combinazione di carte numero e carte operatore in modo che il risultato sia uguale alla carta obiettivo, e per farlo può utilizzare tutte o una parte delle carte numero e carte operatore in suo possesso nel TURNO in corso
               - la soluzione può essere fatta da una concatenazione di operazioni, ed il risultato viene calcolato in maniera lineare, senza parentesi od operazioni annidate
-                - es: 7-4+2=1 perchè valutato come 7-4+2=5 SOLUZIONE VALIDA
-                - es: 7-4+2=1 perchè valutato come 7-[4+2]=7-6=1 SOLUZIONE NON VALIDA
+                - es: 7-4+2=5 **SOLUZIONE VALIDA**
+                - es: 7-4+2=1 perchè valutato come 7-[4+2]=7-6=1 **SOLUZIONE NON VALIDA**
 
-            ### FINE DEL TURNO:
-              - un giocatore dà la soluzione
-              - le carte numero utilizzate per dare la soluzione vengono accumulate nella pila delle soluzioni del giocatore che ha dato la soluzione vincente
-              - la carta obiettivo viene accumulata nella pila delle soluzioni del giocatore che ha dato la soluzione vincente
-              - le carte operatore di tutti i giocatori vengono riposizionate nella pila delle carte operatore da pescare
+            ### FINE DEL TURNO SENZA SOLUZIONE:
+              - il turno di gioco passa al giocatore successivo
+
+            ### FINE DEL TURNO CON SOLUZIONE:
+              - il giocatore di turno dà la soluzione
+              - le carte numero utilizzate per dare la soluzione vengono accumulate nel mazzo delle soluzioni del giocatore che ha dato la soluzione vincente
+              - la carta obiettivo viene accumulata nel mazzo delle soluzioni del giocatore che ha dato la soluzione vincente
+              - le carte operatore di tutti i giocatori vengono riposizionate nel mazzo di pesca delle carte operatore
               - i giocatori ripristinano ora lo stato iniziale della mano:
-                - il giocatore che ha dato la soluzione pesca le carte numero dalla pila delle carte numero da pescare fino a quando non ne ha 3 in mano; se invece ne ha di più, le può tenere per il turno successivo
+                - il giocatore che ha dato la soluzione pesca le carte numero dal mazzo di pesca delle carte numero fino a quando non ne ha 3 in mano; se invece ne ha di più, le può tenere per il turno successivo
                 - il giocatore che ha dato la soluzione pesca le carte operatore fino a quando non ne ha 3 in mano
-                - tutti i giocatori che non hanno dato la soluzione devono scartare tutte le carte numero in eccesso fino a che rimangono solamente con 3 carte numero nella loro mano. Tutti gli eccessi scartati vengono accumulati nella pila delle soluzioni del giocatore che ha dato la soluzione
+                - tutti i giocatori che non hanno dato la soluzione devono scartare tutte le carte numero in eccesso fino a che rimangono solamente con 3 carte numero nella loro mano. Tutti gli eccessi scartati vengono accumulati nel mazzo delle soluzioni del giocatore che ha dato la soluzione
                 - tutti i giocatori che non hanno dato la soluzione devono pescare le carte operatore fino a quando non ne hanno 3 in mano
 
             ### FINE PARTITA:
-              - il mazzo delle carte numero è finito
-              - si finisce il giro del TURNO in corso, se qualcuno ha la soluzione, si procederà con i passaggi di FINE TURNO, altrimenti le carte in gioco nel TURNO in corso non vengono considerate, e si passa alla valutazione del vincitore della partita
+              Il mazzo di pesca delle carte numero è finito. Si finisce il giro completo dei giocatori del TURNO in corso: al primo che ha la soluzione, si procederà con i passaggi di FINE TURNO, altrimenti le carte in gioco nel TURNO in corso non vengono considerate, e si passa alla valutazione del vincitore della partita
 
             ### VINCITORE:
-              - il giocatore con più carte numero nella pila delle soluzioni VINCE la PARTITA
+              Il giocatore con più carte numero nella mazzo delle soluzioni VINCE la PARTITA
+          </md-block>
+        </p>
+          <hr/>
+        <p>
+          <h5 class="lang">ENGLISH</h5>
+          <md-block>
+            ### DECKS:
+              - 45 number cards: 5 cards for each number, from 1 to 9
+              - 32 operator cards: 16 "+" operator cards and 16 "-" operator cards
+
+            ### CARDS:
+              - Number cards represent values from 1 to 9.
+              - Operator cards represent algebric operators: "+" adds, "-" subtracts.
+
+            ### INITIAL SETUP STATE:
+              - 3 number cards
+              - 3 operator cards per player
+              - 1 new goal card drawn from the central deck, face-up.
+
+            ### TURN:
+              The active player can:
+                - Provide a solution
+              or
+                - Draw 1 number card from the draw pile
+                - Optionally swap all operator cards: discard current operator cards and redraw 3 from the deck.
+
+            ### SOLUTION:
+              - During their turn, a player must find a combination of number and operator cards to match the goal card.
+              - Operations are evaluated linearly, without parentheses:
+                - Example: 7-4+2=5 **is valid**
+                - Example: 7-4+2=1 evaluated as 7-[4+2]=7-6=1 **is not valid**.
+
+            ### END OF TURN WITHOUT SOLUTION:
+              - The turn passes to the next player.
+
+            ### END OF TURN WITH SOLUTION:
+              - During their turn, a player provides a solution.
+              - Used number cards for the solution are placed in the solution pile of the player who solved it.
+              - The goal card goes into the same player’s solution pile.
+              - Operator cards of all players are reshuffled into the operator draw pile.
+              - Players restore their hand:
+                - The solving player draws number cards until they have 3. If they have more, they can keep them for the next turn.
+                - The solving player draws operator cards until they have 3.
+                - Players who didn't solve must discard excess number cards until they have 3. All excess cards go into the solution pile of the player who solved.
+                - Non-solving players draw operator cards until they have 3.
+
+            ### END OF GAME:
+              When the number card deck is empty, finish the current round. If someone has solved, proceed to the end-of-turn steps. Otherwise, discard any unused cards and evaluate the winner.
+
+            ### WINNER:
+              The player with the most number cards in their solution pile wins.
           </md-block>
         </p>
       </section>
