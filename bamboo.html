@@ -26,107 +26,86 @@
     <div class="container">
       <section id="board-games" class="my-5 py-4">
         <h4 class="text-bg-success p-1">Bamboo</h4>
-        <p>
-          <h5 class="lang">ITA</h5>
-          <md-block>
-            ### I MAZZI:
-              - 45 carte numero: 5 carte per ogni numero, numeri da 1 a 9
-              - 32 carte operatore: 16 carte operatore "+"" e 16 carte operatore "-"
+        <p class="mt-4">
+          Bamboo is a card game for 2-4 players.
 
-            ### LE CARTE:
+          The idea of the game comes from the purpose to get children training math and computation through a fun and engaging way.
 
-              - le carte numero rappresentano un numero da 1 a 9
-              - le carte operatore rappresentano un operatore algebrico: "+" esegue la somma, "-" esegue la sottrazione
+          It is a game of strategy and luck, where players try to match an objective card with a combination of number and operator cards. The goal of the game is to get number and objective cards in the player’s solution pile. The player who has the most wins.
 
-            ### LA PREPARAZIONE DELLO STATO INIZIALE:
-              - 3 carte numero per ogni giocatore
-              - 3 carte operatore per ogni giocatore
-              - 1 nuova carta obiettivo prelevata dal mazzo di pesca delle carte numero e rivolta a faccia in su, visiblile a tutti i giocatori
+          <h5 class="mt-4">Bamboo and A.I.</h5>
+          <p>Bamboo started as a paper drafted idea, but at some point I felt the need of balancing the game, and simulate how it might behave with different players, different amount of cards, different values of cards, and so on.</p>
+          <p>Here it is where the <a href="https://github.com/GAIGResearch/TabletopGames" target="_blank">TAG (Tabletop Games)</a> framework kicked in and played its proper role. TAG is a JAVA framework that allows to simulate games and evaluate different strategies. After an initial basic understanding of the framework, I started the journey of implementing the Bamboo game in TAG. By implementing the game logic following TAG patterns, I am now able to simulate with the A.I. framework how the game would behave (statistically speaking) with a different types and amount of cards and players. That's how I came up with arbitrary setup amount of cards, amount of objective cards in the deck, copies of each number card, and so on.</p>
+          <p>I would recommend TAG framework to all board game designers and developers after my experiences with it.</p>
+          <p>Bamboo implementation in TAG is available <a href="https://github.com/ncounter/TabletopGames/tree/bamboo" target="_blank">here</a>.</p>
 
-            ### IL TURNO:
-              Il giocatore che è di TURNO può:
-              - dare la soluzione
-              ##### oppure
-              - pescare 1 carta numero
-              - cambiare tutte le carte operatore [opzionale]: il giocatore ripone tutte le sue carte operatore nel mazzo di pesca delle carte operatore, mescola il mazzo e ne ripesca nuovamente 3
+          <p class="mt-2">Note: a <strong>huge mention</strong> must be done afterwards: nothing could have happened of what was said above if it was not thanks for the collaboration with my dear friend and colleague <a href="https://github.com/moio" target="_blank">moio</a>.</p>
 
-            ### LA SOLUZIONE:
-              - ogni giocatore, durante il proprio turno, deve trovare una combinazione di carte numero e carte operatore in modo che il risultato sia uguale alla carta obiettivo, e per farlo può utilizzare tutte o una parte delle carte numero e carte operatore in suo possesso nel TURNO in corso
-              - la soluzione può essere fatta da una concatenazione di operazioni, ed il risultato viene calcolato in maniera lineare, senza parentesi od operazioni annidate
-                - es: 7-4+2=5 **SOLUZIONE VALIDA**
-                - es: 7-4+2=1 perchè valutato come 7-[4+2]=7-6=1 **SOLUZIONE NON VALIDA**
+        <p class="mt-4">
+          <h5 class="mt-4 manual-header">INITIAL SETUP STATE</h5>
+          <ul>
+            <li>3 number cards</li>
+            <li>1 operator cards per player</li>
+            <li>1 new objective card drawn, face-up</li>
+          </ul>
 
-            ### FINE DEL TURNO SENZA SOLUZIONE:
-              - il turno di gioco passa al giocatore successivo
+          <img src="./images/bamboo-setup.png" alt="Bamboo setup" class="img-fluid" />
 
-            ### FINE DEL TURNO CON SOLUZIONE:
-              - il giocatore di turno dà la soluzione
-              - le carte numero utilizzate per dare la soluzione vengono accumulate nel mazzo delle soluzioni del giocatore che ha dato la soluzione vincente
-              - la carta obiettivo viene accumulata nel mazzo delle soluzioni del giocatore che ha dato la soluzione vincente
-              - le carte operatore di tutti i giocatori vengono riposizionate nel mazzo di pesca delle carte operatore
-              - i giocatori ripristinano ora lo stato iniziale della mano:
-                - il giocatore che ha dato la soluzione pesca le carte numero dal mazzo di pesca delle carte numero fino a quando non ne ha 3 in mano; se invece ne ha di più, le può tenere per il turno successivo
-                - il giocatore che ha dato la soluzione pesca le carte operatore fino a quando non ne ha 3 in mano
-                - tutti i giocatori che non hanno dato la soluzione devono scartare tutte le carte numero in eccesso fino a che rimangono solamente con 3 carte numero nella loro mano. Tutti gli eccessi scartati vengono accumulati nel mazzo delle soluzioni del giocatore che ha dato la soluzione
-                - tutti i giocatori che non hanno dato la soluzione devono pescare le carte operatore fino a quando non ne hanno 3 in mano
+          <h5 class="mt-4 manual-header">TURN</h5>
+          The active player can do one of the following:
+          <ul>
+            <li>Provide a solution</li>
+            <li>Pass the turn</li>
+          </ul>
 
-            ### FINE PARTITA:
-              Il mazzo di pesca delle carte numero è finito. Si finisce il giro completo dei giocatori del TURNO in corso: al primo che ha la soluzione, si procederà con i passaggi di FINE TURNO, altrimenti le carte in gioco nel TURNO in corso non vengono considerate, e si passa alla valutazione del vincitore della partita
+          <h5 class="mt-4 manual-header">PROVIDE A SOLUTION</h5>
+          During their turn, a player finds a combination of number and operator cards to match the objective card.
+          Operations are evaluated linearly, without parentheses:
+          <ul>
+            <li>Example: 7-4+2=5 <strong>is valid</strong></li>
+            <li>Example: 7-4+2=1 evaluated as 7-[4+2]=7-6=1 <strong>is not valid</strong>.</li>
+          </ul>
 
-            ### VINCITORE:
-              Il giocatore con più carte numero nella mazzo delle soluzioni VINCE la PARTITA
-          </md-block>
-        </p>
-          <hr/>
-        <p>
-          <h5 class="lang">ENGLISH</h5>
-          <md-block>
-            ### DECKS:
-              - 45 number cards: 5 cards for each number, from 1 to 9
-              - 32 operator cards: 16 "+" operator cards and 16 "-" operator cards
+          The solution is explained and evaluated by the other players. If it is valid and confirmed, then:
+          <ul>
+            <li>Used number cards for the solution are placed in the solution pile of the player who solved it.</li>
+            <li>The objective card goes into the same player’s solution pile.</li>
+            <li>Operator cards of all players are reshuffled into the operator draw pile.</li>
+            <li>Players restore their hand:
+              <ul>
+                <li>The solving player draws number cards until they have 3. If they have more, they can keep them for the next turn</li>
+                <li>The solving player draws 1 operator cards</li>
+                <li>Players who didn't solve must discard excess number cards until they have 3. All excess cards go into the solution pile of the player who solved.</li>
+                <li>Players who didn't solve must draw 1 operator card</li>
+              </ul>
+            </li>
+          </ul>
 
-            ### CARDS:
-              - Number cards represent values from 1 to 9.
-              - Operator cards represent algebric operators: "+" adds, "-" subtracts.
+          <img src="./images/bamboo-solution.png" alt="Bamboo solution" class="img-fluid" />
 
-            ### INITIAL SETUP STATE:
-              - 3 number cards
-              - 3 operator cards per player
-              - 1 new goal card drawn from the central deck, face-up.
+          <h5 class="mt-4 manual-header">PASS THE TURN</h5>
+          The passing player can do one of the following:
+          <ul>
+            <li>Draw 1 number card from the draw pile and draw 1 operator card from the draw pile.</li>
+            <li>Draw 2 number cards from the number draw pile</li>
+            <li>Draw 2 operator cards from the operator draw pile</li>
+            <li>Swap all cards: put back current number and operator player's cards and redraw from the decks until they have the same amount as before</li>
+          </ul>
 
-            ### TURN:
-              The active player can:
-                - Provide a solution
-              or
-                - Draw 1 number card from the draw pile
-                - Optionally swap all operator cards: discard current operator cards and redraw 3 from the deck.
+          <h5 class="mt-4 manual-header">END OF GAME</h5>
+          When the number card deck or the objective card deck is empty, finish the current round. If someone has solved, proceed to the end-of-turn steps. Otherwise, discard any unused cards and evaluate the winner.
 
-            ### SOLUTION:
-              - During their turn, a player must find a combination of number and operator cards to match the goal card.
-              - Operations are evaluated linearly, without parentheses:
-                - Example: 7-4+2=5 **is valid**
-                - Example: 7-4+2=1 evaluated as 7-[4+2]=7-6=1 **is not valid**.
+          <h5 class="mt-4 manual-header">WINNER</h5>
+          The player with the most number cards in their solution pile wins.
 
-            ### END OF TURN WITHOUT SOLUTION:
-              - The turn passes to the next player.
+          <h5 class="mt-4 manual-header">COMPONENTS</h5>
+          <ul>
+            <li>45 number cards: 5 cards for each number, from 1 to 9</li>
+            <li>32 operator cards: 16 "+" operator cards and 16 "-" operator cards</li>
+            <li>20 objective cards: 1 cart for each number, from 1 to 20</li>
+          </ul>
 
-            ### END OF TURN WITH SOLUTION:
-              - During their turn, a player provides a solution.
-              - Used number cards for the solution are placed in the solution pile of the player who solved it.
-              - The goal card goes into the same player’s solution pile.
-              - Operator cards of all players are reshuffled into the operator draw pile.
-              - Players restore their hand:
-                - The solving player draws number cards until they have 3. If they have more, they can keep them for the next turn.
-                - The solving player draws operator cards until they have 3.
-                - Players who didn't solve must discard excess number cards until they have 3. All excess cards go into the solution pile of the player who solved.
-                - Non-solving players draw operator cards until they have 3.
-
-            ### END OF GAME:
-              When the number card deck is empty, finish the current round. If someone has solved, proceed to the end-of-turn steps. Otherwise, discard any unused cards and evaluate the winner.
-
-            ### WINNER:
-              The player with the most number cards in their solution pile wins.
-          </md-block>
+          <img src="./images/bamboo-components.png" alt="Bamboo" class="img-fluid" />
         </p>
       </section>
     </div>
